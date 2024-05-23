@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-# get 'movies' to
+  resources :lists, only: %i[new index create show] do
+    resources :bookmarks, only: %i[new create]
+  end
+ resources :bookmarks, only: :destroy
+
 end
