@@ -8,6 +8,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   def show
+    @bookmark = Bookmark.new
   end
 
   # GET /lists/new

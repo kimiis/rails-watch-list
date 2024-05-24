@@ -1,2 +1,45 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @list.name %></h1>
+
+<div class="card-movie">
+  <div class="movies">
+    <h2>Movies:</h2>
+    <% @list.movies.each do |movie| %>
+      <div class="card_movie">
+        <h3><%= movie.title %></h3>
+        <%= image_tag(movie.poster_url) if movie.poster_url.present? %>
+        <p><%= movie.overview %></p>
+        <p>Rating: <%= movie.rating %></p>
+
+        <h4>Bookmarks:</h4>
+        <ul>
+          <% movie.bookmarks.where(list: @list).each do |bookmark| %>
+            <li>
+              <p><%= bookmark.comment %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="new-bookmark">
+    <h2>Add a new bookmark</h2>
+    <%= render 'bookmarks/form', list: @list, bookmark: @bookmark %>
+  </div>
+</div>
+
+<%= link_to 'Back', lists_path %>
+<div>
+  <h2>Reviews</h2>
+  <ul>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li><%= link_to bookmark.comment, list_path(@list) %></li>
+    <% end %>
+  </ul>
+  
+  <div class="new-bookmark">
+    <h2>Add a new comment</h2>
+    <%= render 'lists/form', list: @list, bookmark: @bookmark %>
+  </div>
+</div>
+<%= link_to 'Back', lists_path %>

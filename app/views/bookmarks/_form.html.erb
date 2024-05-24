@@ -1,0 +1,13 @@
+<%= simple_form_for([@list, @bookmark], local: true) do |form| %>
+  <div class="field">
+    <%= form.input :movie_id, collection: Movie.all.collect { |movie| [movie.title, movie.id] }, prompt: "Select a movie" %>
+  </div>
+
+  <div class="field">
+    <%= form.input :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>

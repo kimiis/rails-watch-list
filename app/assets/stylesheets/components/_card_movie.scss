@@ -1,20 +1,66 @@
-.card-category {
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// Variables
+$card-bg-color: #ffffff;
+$card-border-color: #ddd;
+$card-shadow-color: rgba(0, 0, 0, 0.1);
+$card-border-radius: 10px;
+$card-padding: 20px;
+$card-margin: 20px;
+$bookmark-bg-color: #f9f9f9;
+$bookmark-border-color: #ccc;
+$bookmark-border-radius: 6px;
+$bookmark-padding: 10px;
+$container-width: 90%;
 
-    .img-movie{
-      width: 3rem;
-    }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: $container-width;
 }
 
+.card_movie {
+  background-color: $card-bg-color;
+  border: 1px solid $card-border-color;
+  border-radius: $card-border-radius;
+  margin: $card-margin;
+  padding: $card-padding;
+  width: calc(25% - #{$card-margin * 2}); // Quatre cartes côte à côte avec une marge de 20px entre elles
+  box-shadow: 0 4px 8px $card-shadow-color;
+  transition: box-shadow 0.3s ease-in-out;
 
-.custom-container {
-  display: flex;
-  gap: 5%;
+  &:hover {
+    box-shadow: 0 8px 16px $card-shadow-color;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.2rem; // Taille de police réduite pour les titres
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: $card-border-radius;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      background-color: $bookmark-bg-color;
+      border: 1px solid $bookmark-border-color;
+      border-radius: $bookmark-border-radius;
+      margin: 5px 0;
+      padding: $bookmark-padding;
+    }
+  }
 }
