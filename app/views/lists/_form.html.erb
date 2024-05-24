@@ -1,8 +1,8 @@
-<%= form_with(model: list, local: true) do |form| %>
-
+<%= simple_form_for([@list], local: true) do |form| %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :list_name %>
+   
   </div>
 
   <div class="actions">

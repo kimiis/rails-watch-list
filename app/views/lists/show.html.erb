@@ -36,10 +36,9 @@
       <li><%= link_to bookmark.comment, list_path(@list) %></li>
     <% end %>
   </ul>
-  
-  <div class="new-bookmark">
-    <h2>Add a new comment</h2>
-    <%= render 'lists/form', list: @list, bookmark: @bookmark %>
-  </div>
+
 </div>
+
+
+
 <%= link_to 'Back', lists_path %>
